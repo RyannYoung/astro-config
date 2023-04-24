@@ -17,8 +17,7 @@ return {
     },
   },
 
-  -- Set colorscheme to use
-  colorscheme = "astrodark",
+  colorscheme = "catppuccin",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -28,6 +27,9 @@ return {
 
   lsp = {
     -- customize lsp formatting options
+    setup_handlers = {
+      rust_analyzer = function(_, opts) require("rust-tools").setup { server = opts } end
+    },
     formatting = {
       -- control auto formatting on save
       format_on_save = {
@@ -50,7 +52,7 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
-      -- "pyright"
+      "pyright"
     },
   },
 
